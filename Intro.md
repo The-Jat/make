@@ -1,5 +1,5 @@
 ## What is Makefile
-When your code is separated into many several files that have interdependencies, it is natural to look for an automated way of compiling your program,
+When your code is separated into many several files that have interdependencies, it is natural to look for an automated way of compiling your program,
 because compilation and linking become very complicated. The make program
 was designed to help developers automatically build executable programs.
 Once you have set up a Makefile that describes the components of your
@@ -47,12 +47,15 @@ action.
 &nbsp;&nbsp;&nbsp;&nbsp;recipe
 
 A Makefile rule is made up of :-
+
 &nbsp;&nbsp;&nbsp;&nbsp;• A target, which is the argument given to make on the commandline
 (i.e make target). The target usually is the name of the file that will
 be created after the rule is executed, but it can also be the name of
 an action to carry out (clean, install, etc. . . ).
+
 &nbsp;&nbsp;&nbsp;&nbsp;• A list of 0 or more prerequisites, which are files or targets that
 the current target depends on.
+
 &nbsp;&nbsp;&nbsp;&nbsp;• A recipe, which is the shell command(s) executed by the Makefile
 rule.
 
