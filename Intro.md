@@ -36,6 +36,38 @@ Makefiles to save .o files. That way, compiling an executable only requires
 remaking .o files that are not up to date, and combining them with the old
 .o files.
 
+## How does it work?
+When you type make or make [target], the Make will look through your current directory for a Makefile. This file must be called makefile or Makefile.
+Make will then look for the corresponding target in the makefile. If you don’t provide a target, Make will just run the first target it finds.
+If the target is found, the target’s dependencies will be run as needed, then the target commands will be run.
+Oftentimes these commands start with g++, but they can be anything! You can run any command this way.
+The target dependency format looks like this. Note the tab indent before the commands; these are required!
+```
+target1: dependency1 dependency2 ...
+	command1
+	command2
+	...
+```
+Targets in a Makefile can be named anything (though as you’ll see, certain names can incur certain behavior). Dependencies can either be other targets or file names; if a target depends on another target, it guarantees that target will be run prior, and if a target depends on a file, it will check to see if that file has changed to avoid executing redundantly. Finally, commands can be anything you could run on your command line.
+
+Simple Example
+This simple Makefile compiles a hello.cpp program. It also includes a clean target that removes our executable in case we want to clean up the directory.
+```
+hello: hello.cpp
+	g++ -g -Wall hello.cpp -o hello
+
+clean:
+	rm -f hello
+```
+If we’re in the same directory as our Makefile, we can run the following to compile hello.cpp:
+```
+make  # or make hello
+```
+And we can run the following to delete the file we just generated during compilation:
+```
+make clean
+```
+
 ## Anatomy of a Makefile
 
 > Makefile rules
