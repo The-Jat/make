@@ -8,6 +8,7 @@ target1: dependency1 dependency2
 $@ expands to the target name, i.e. target1
 $< expands to the first dependency, i.e. dependency1
 $^ expands to the complete list of dependencies, i.e. dependency1 dependency2
+$* denotes ‘the stem with which the pattern of the current rule matched’.
 You can use the wildcard operator, %, to apply a rule to multiple files. For example, the following rule compiles all .cpp files in the directory to correspondingly named .o files:
 ```
 %.o: %.cpp
